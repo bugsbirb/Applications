@@ -44,6 +44,7 @@ class Configuration(commands.Cog):
     @commands.hybrid_command(
         name="setup", description="Configure the bot for your server"
     )
+    @commands.has_permissions(manage_guild=True)
     async def setup(self, ctx: commands.Context) -> None:
         from Cogs.Utils.menus import Config
 
@@ -63,6 +64,19 @@ class Configuration(commands.Cog):
         )
         await ctx.send(embed=E, view=view)
 
+    
+    @setup.error
+    async def setup_error(self, ctx: commands.Context, error: Exception) -> None:
+        if isinstance(error, commands.MissingPermissions):
+            await ctx.send(
+                content=f"` ❌ ` **{ctx.author.display_name},** you do not have permission to use this command.",
+                ephemeral=True,
+            )
+        else:
+            await ctx.send(
+                content=f"` ❌ ` **{ctx.author.display_name},** an unexpected error occurred.",
+                ephemeral=True,
+            )
 
 async def setup(client: commands.Bot) -> None:
     await client.add_cog(Configuration(client))

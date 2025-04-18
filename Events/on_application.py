@@ -24,17 +24,17 @@ class Applications(commands.Cog):
                 return
             guild = Client.get_guild(int(REQUEST.get("guild_id")))
             if not guild:
-                print("Guild not found")
                 return
 
             Config = await self.client.db["Configuration"].find_one(
                 {"_id": int(guild.id)}
             )
             if not Config:
-                print("Config not found")
                 return
             if not Config.get("Applications"):
-                print("Applications not enabled")
+                return
+
+            if not Config.get("Applications", {}).get("Enabled", True):
                 return
 
             DeniedChannel = Config.get("Applications").get("Channels", {}).get("Denied")
