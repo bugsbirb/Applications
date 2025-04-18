@@ -7,3 +7,6 @@ If you wanna read more about discords join applications, [read here](https://sup
 ## Links
 * https://discord.com/oauth2/authorize?client_id=1326624940010639400
  
+## Preview
+<img src="https://github.com/bugsbirb/Applications/blob/7011964eb0bbd9b39a040cbc90458048a623458e/Assets/config.png" alt="Config">
+<img src="https://github.com/bugsbirb/Applications/blob/7011964eb0bbd9b39a040cbc90458048a623458e/Assets/app.png" alt="App">
