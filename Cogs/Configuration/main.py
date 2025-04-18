@@ -22,7 +22,7 @@ async def ConfigEmbed(guild: discord.Guild) -> discord.Embed:
     embed.add_field(
         name="` ❤️ ` Support",
         value="> If you need help, please join open a support issue on our github.",
-        inline=False
+        inline=False,
     )
     embed.add_field(
         name="` 📙 ` Purpose",
@@ -31,7 +31,7 @@ async def ConfigEmbed(guild: discord.Guild) -> discord.Embed:
             "Automate submissions, approvals, and denials to stay organized. "
             "[Learn more](https://support.discord.com/hc/en-us/articles/29729107418519-Server-Member-Applications)."
         ),
-        inline=False
+        inline=False,
     )
 
     return embed
@@ -64,7 +64,6 @@ class Configuration(commands.Cog):
         )
         await ctx.send(embed=E, view=view)
 
-    
     @setup.error
     async def setup_error(self, ctx: commands.Context, error: Exception) -> None:
         if isinstance(error, commands.MissingPermissions):
@@ -77,6 +76,7 @@ class Configuration(commands.Cog):
                 content=f"` ❌ ` **{ctx.author.display_name},** an unexpected error occurred.",
                 ephemeral=True,
             )
+
 
 async def setup(client: commands.Bot) -> None:
     await client.add_cog(Configuration(client))
