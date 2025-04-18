@@ -21,7 +21,7 @@ async def ConfigEmbed(guild: discord.Guild) -> discord.Embed:
 
     embed.add_field(
         name="` ❤️ ` Support",
-        value="> If you need help, please join open a support issue on our github.",
+        value="> If you need help, please join open a support issue on our [github](https://github.com/bugsbirb/Applications).",
         inline=False,
     )
     embed.add_field(
